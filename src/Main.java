@@ -1,83 +1,104 @@
+import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        Employee employeemas[] = new Employee[5];
+        EmployeeBook worker = new EmployeeBook();
+         worker.addWorkers("Александров ","Александр ","Владимирович ",300000,1);
+        worker.addWorkers("Мир ", "Ан ", "Анат ", 110000, 4);
+        worker.addWorkers("Андреев ", "Андрей ", "Андреевич ", 50000, 1);
+        worker.addWorkers("Рид ", "Vbн ", "Анат ", 120000, 5);
+        worker.addWorkers("Пупко ", "Oн ", "Анат ", 120000, 2);
+        worker.addWorkers("Попов ", "Евгений ", "Сергеевич ", 140000, 2);
+        worker.addWorkers("Смиргов ", "Андрей ", "Анатольевичь ", 130000, 4);
+        worker.addWorkers("Сид ", "Ан ", "Анат ", 20000, 3);
+        worker.addWorkers("Мил ", "Анh ", "Анат ", 120000, 1);
+        worker.addWorkers("Миk ", "Анf ", "Анат ", 109000, 5);
+//        worker.addWorkers("ssss","ssd","ewdew",222,1);
 
-        Employee employee1 = new Employee("Александров", "Александр", "Владимирович", 300000, 1);
-        employeemas[0] = employee1;
+        System.out.println("Список всех сотрудников : ");
+        System.out.println("Занятое место в книге : " + worker.getCurrentSizeOfBook());
+        separator();
+        worker.printAllWorks();
+        separator();
+        System.out.println("Общая зарплата всех сотрудников за 1 месяц : " + worker.countTotalSalaryForMonth());
+        separator();
+        System.out.println("Минимальная зарплата всех сотрудников за 1 месяц : " + worker.countMinSalaryWorkers());
+        separator();
+        System.out.println("Максимальная зарплата всех сотрудников за 1 месяц : "   + worker.contMaxSalaryWorkers());
+        separator();
+        System.out.println("Среднее значение по зарплате за месяц : " + worker.countAverageSalaryWorkers());
+        separator();
+        System.out.println("Ф.И.О всех сотрудников : ");
+        worker.printfio();
+        separator();
+        System.out.println("Повысить зарплату в % : ");
+        double precent = worker.countPercentSalary(worker.countTotalSalaryForMonth(), 10);
+        System.out.println(precent);
+        separator();
+        System.out.println("Найти сотрудника по ID : ");
+        worker.findById(0);
+        separator();
+        System.out.println("Список работников без номера отдела : ");
+        worker.printWorksNoDepartament();
+        System.out.println("Зарплата больше или меньше от определенного числа");
+        worker.countNumberMoreOrUnder(200000);
+        separator();
+        System.out.println("Данные сотрудников отдела : ");
+        worker.departmentNumber(1);
+        separator();
+        System.out.println("Повысить зарплату в % по отделам ");
+        worker.countPercentInDepartment(1, 10);
 
 
-        Employee employee2 = new Employee("Андреев ", "Андрей", "Андреевич", 100000, 2);
-        employeemas[1] = employee2;
 
-        Employee employee3 = new Employee("Попов ", "Евгений", "Сергеевич", 55000, 3);
-        employeemas[2] = employee3;
+//        System.out.println("Список сотрудников и их данные");
+//        EmployeeBook.employeeData(employeemas);
+//        int totalSalary = EmployeeBook.totalSalaryForMonth(employeemas);
+//        System.out.println("Общая сумма затрат на зарплаты в месяц: " + totalSalary);
+//
+//        int maxSum = EmployeeBook.maxSalaryEmployee(employeemas);
+//
+//        int minSum = EmployeeBook.minSalaryEmployee(employeemas);
+//
+//        double averageSum = EmployeeBook.averageSalaryEmployee(employeemas);
+//
+//        System.out.println("Минимальная сумма зарплаты сотрудника составляет : " + minSum);
+//        System.out.println("Максимальная сумма зарплаты сотрудника составляет : " + maxSum);
+//        System.out.println("Среднее значение по зарплате сотавляет : " + averageSum);
+//
+//        EmployeeBook.Fio(employeemas);
+//        System.out.println("Повышение з.п в процентах: " + EmployeeBook.salaryPercent(totalSalary, 10) + " рублей.");
+//        System.out.println("По номеру департамента: ");
+//
+//
+//        System.out.println("Найти по ID : ");
+//        EmployeeBook.findById(2, employeemas);
+//
+//        System.out.println("===========================================================================================");
+//
+////
+//        EmployeeBook.departamentNumber(5, employeemas);
 
-        Employee employee4 = new Employee("Сомов ", "Андрей", "Андреевич", 50000, 4);
-        employeemas[3] = employee4;
-
-        Employee employee5 = new Employee("Сидоров ", "Андрей", "Анатольевичь", 130000, 5);
-        employeemas[4] = employee5;
-        System.out.println("Список сотрудников и их данные");
-        employeeData(employeemas);
-        System.out.println("Общая сумма затрат на зарплаты в месяц: " + totalSalaryForMonth(employeemas));
-
-        int maxSum = maxSalaryEmployee(employeemas);
-        int minSum = minSalaryEmployee(employeemas,maxSum);
-        double averageSum =  averageSalaryEmployee(employeemas);
-        System.out.println("Минимальная сумма зарплаты сотрудника составляет : " + minSum);
-        System.out.println("Максимальная сумма зарплаты сотрудника составляет : " + maxSum);
-        System.out.println("Среднее значение по зарплате сотавляет : " + averageSum);
-        Fio(employeemas);
     }
-    public static void employeeData(Employee employee[]) {
-        for (int i = 0; i < employee.length; i++) {
-            System.out.println(employee[i] );
-            System.out.println(Employee.getId());
-        }
-    }
 
-    public  static int totalSalaryForMonth(Employee[] sum) {
-        int totalSum = 0;
-        for (int i = 0; i < sum.length; i++) {
-            totalSum += sum[i].getSalary();
-        }
-        return totalSum;
-    }
-
-    public static int minSalaryEmployee(Employee[] minSumEmployee,int minS) {
-        int minSum = minS;
-        for (int i = 0; i < minSumEmployee.length; i++) {
-            if ( minSum > minSumEmployee[i].getSalary()) {
-                minSum = minSumEmployee[i].getSalary();
-            }
-        }
-        return minSum;
-    }
-
-    public static int maxSalaryEmployee(Employee[] maxSumEmployee) {
-        int maxSum = 0;
-        for (int i = 0; i < maxSumEmployee.length; i++) {
-            if (maxSum < maxSumEmployee[i].getSalary()) {
-                maxSum = maxSumEmployee[i].getSalary();
-            }
-        }
-        return maxSum;
-    }
-
-    public static double averageSalaryEmployee(Employee[] average) {
-         double averageSum = totalSalaryForMonth(average) / average.length;
-
-        return averageSum;
+    public static void separator () {
+        System.out.println("============================");
 
     }
 
-    public static void Fio(Employee [] fio) {
-        for (int i = 0; i < fio.length; i++) {
-            System.out.println("Ф.И.О. сотруника - " + fio[i].getSurName() +" "+fio[i].getName() + " "+ fio[i].getPatronymic());
-
-        }
-
-    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
