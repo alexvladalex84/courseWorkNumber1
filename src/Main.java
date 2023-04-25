@@ -4,17 +4,29 @@ public class Main {
     public static void main(String[] args) {
         EmployeeBook worker = new EmployeeBook();
          worker.addWorkers("Александров ","Александр ","Владимирович ",300000,1);
-        worker.addWorkers("Мир ", "Ан ", "Анат ", 110000, 4);
-        worker.addWorkers("Андреев ", "Андрей ", "Андреевич ", 50000, 1);
-        worker.addWorkers("Рид ", "Vbн ", "Анат ", 120000, 5);
-        worker.addWorkers("Пупко ", "Oн ", "Анат ", 120000, 2);
+        worker.addWorkers("Мир ", "Ан ", "Анат ", 110005, 3);
+        worker.addWorkers("Андреев ", "Андрей ", "Андреевич ", 50046, 1);
+        worker.addWorkers("Рид ", "Vbн ", "Анат ", 120001, 5);
+        worker.addWorkers("Пупко ", "Oн ", "Анат ", 120040, 2);
         worker.addWorkers("Попов ", "Евгений ", "Сергеевич ", 140000, 2);
-        worker.addWorkers("Смиргов ", "Андрей ", "Анатольевичь ", 130000, 4);
+        worker.addWorkers("Смиргов ", "Андрей ", "Анатольевичь ", 130055, 4);
         worker.addWorkers("Сид ", "Ан ", "Анат ", 20000, 3);
-        worker.addWorkers("Мил ", "Анh ", "Анат ", 120000, 1);
+        worker.addWorkers("Мил ", "Анh ", "Анат ", 120028, 1);
         worker.addWorkers("Миk ", "Анf ", "Анат ", 109000, 5);
 //        worker.addWorkers("ssss","ssd","ewdew",222,1);
+          worker.getCurrentSizeOfBook();
+          separator();
+        System.out.println("Удалить сотрудника ");
+        worker.removeTheWorker(6);
+        separator();
+        System.out.println("Изменить зарплату и отдел сотрудника ");
 
+        worker.changeWorkerSalary("Мир ","Ан ","Анат ",150000);
+        worker.changeWorkerDepartment("Александров ","Александр ","Владимирович ",2);
+        separator();
+        System.out.println(" Получить Ф. И. О. всех сотрудников по отделам (напечатать список отделов и их сотрудников)");
+        worker.printListOfWorkersAndDepartments();
+        separator();
         System.out.println("Список всех сотрудников : ");
         System.out.println("Занятое место в книге : " + worker.getCurrentSizeOfBook());
         separator();
@@ -47,7 +59,7 @@ public class Main {
         worker.departmentNumber(1);
         separator();
         System.out.println("Повысить зарплату в % по отделам ");
-        worker.countPercentInDepartment(1, 10);
+        worker.countPercentInDepartment(2, 10);
 
 
 

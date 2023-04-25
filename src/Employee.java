@@ -39,6 +39,8 @@ public class Employee {
         return salary;
     }
 
+
+
     public int getDepartment() {
         return department;
     }
@@ -70,14 +72,14 @@ public class Employee {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if ( getClass() != o.getClass()) return false;
         Employee employee = (Employee) o;
-        return salary == employee.salary && department == employee.department && Objects.equals(surName, employee.surName) && Objects.equals(name, employee.name) && Objects.equals(patronymic, employee.patronymic);
+        return salary == employee.salary && department == employee.department && id == employee.id && Objects.equals(surName, employee.surName) && Objects.equals(name, employee.name) && Objects.equals(patronymic, employee.patronymic);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(surName, name, patronymic, salary, department);
+        return Objects.hash(surName, name, patronymic, salary, department, id);
     }
 }
 
