@@ -16,17 +16,20 @@ public class EmployeeBook {
             }
       public void removeTheWorker(int ID) {
           for (int i = 0; i < workers.length; i++) {
-              if (ID == workers[i].getId()) {
-                  System.out.println(workers[i] + " удален из списка ");
-                  workers[i] = null;
+              if (workers[i] != null) {
+                  if (ID == workers[i].getId()) {
+                      System.out.println(workers[i] + " удален из списка ");
+                      workers[i] = null;
+                  }
               }
           }
-
       }
 
     public int getCurrentSizeOfBook() {
         return size;
     }
+
+
     public void changeWorkerSalary(String surName, String name, String patronymic,int changeSalary) {
         for (int i = 0; i < workers.length; i++) {
             if (workers[i] != null) {
@@ -100,7 +103,7 @@ public class EmployeeBook {
     }
 
     public  double countAverageSalaryWorkers() {        //среднее значенеие суммы зарплат
-        double averageSum = countTotalSalaryForMonth() / workers.length;
+        double averageSum =( double)countTotalSalaryForMonth() / workers.length;
 
         return averageSum;
     }
@@ -320,7 +323,7 @@ public class EmployeeBook {
             }
             System.out.println("Общая сумма зарплат за месяц в отделе № 1 : " + totalSum);
             seporator();
-            double averageSum = totalSum / department1.length;
+            double averageSum = (double) totalSum / department1.length;
             System.out.println("Средняя зарплата по отделу № 1 : " + averageSum);
             seporator();
             System.out.println("Список сотрудников отдела № 1 :");
@@ -371,7 +374,7 @@ public class EmployeeBook {
             }
             System.out.println("Общая сумма зарплат за месяц в отделе № 2 : " + totalSum);
             seporator();
-            double averageSum = totalSum / department2.length;
+            double averageSum = (double) totalSum / department2.length;
             System.out.println("Средняя зарплата по отделу № 2 : " + averageSum);
             seporator();
             System.out.println("Список сотрудников отдела № 2 :");
@@ -421,7 +424,7 @@ public class EmployeeBook {
             }
             System.out.println("Общая сумма зарплат за месяц в отделе № 3 : " + totalSum);
             seporator();
-            double averageSum = totalSum / department3.length;
+            double averageSum =(double) totalSum / department3.length;
             System.out.println("Средняя зарплата по отделу № 3 : " + averageSum);
             seporator();
             System.out.println("Список сотрудников отдела № 3 :");
@@ -470,7 +473,7 @@ public class EmployeeBook {
             }
             System.out.println("Общая сумма зарплат за месяц в отделе № 4 : " + totalSum);
             seporator();
-            double averageSum = totalSum / department4.length;
+            double averageSum = (double) totalSum / department4.length;
             System.out.println("Средняя зарплата по отделу № 4 : " + averageSum);
             seporator();
             System.out.println("Список сотрудников отдела № 4 :");
@@ -519,7 +522,7 @@ public class EmployeeBook {
             }
             System.out.println("Общая сумма зарплат за месяц в отделе № 5 : " + totalSum);
             seporator();
-            double averageSum = totalSum / department2.length;
+            double averageSum = (double) totalSum / department2.length;
             System.out.println("Средняя зарплата по отделу № 5 : " + averageSum);
             seporator();
             System.out.println("Список сотрудников отдела № 5 :");
@@ -528,210 +531,8 @@ public class EmployeeBook {
             }
         }
     }
-    //    public  void departamentNumber(int namberDepartament ) {  //сотрудники по отделам
-//        if (namberDepartament <= 0 || namberDepartament > 5) {
-//            System.out.println("Такого отдела нет");
-//
-//        } else if (namberDepartament == 1) {
-//            System.out.println("ОТДЕЛ № 1");
-//            int count = 0;                           //с данного массива переместили нужные данные в другой массив
-//            for (int i = 0; i < workers.length; i++) { //
-//                if (workers[i].getDepartment() == 1) { //
-//                    count++;                        // мы узнали количество элементов которое будет в новом массиве
-//                }
-//            }
-//
-//            Employee[] departament1 = new Employee[count];     // в массиве в который перенесли данные,теперь два элемента
-//            int index = 0;                             //
-//            for (int i = 0; i < workers.length; i++) {
-//                if (workers[i].getDepartment() == 1) {   //по условиям задачи
-//                    departament1[index] = workers[i];            // теперь данные записались в другой массив
-//                    index++;
-//
-//                }
-//            }
-//
-//            printAllWorks();
-//            System.out.println("++++++++++");
-//            System.out.println("Минимальная зарплата в отделе 1 : " + EmployeeBook.minSalaryEmployee(departament1));
-//            System.out.println("Максимальная зарплата в отделе 1 : " + EmployeeBook.maxSalaryEmployee(departament1));
-//            int totalSalaryDrp1 = EmployeeBook.totalSalaryForMonth(departament1);
-//            System.out.println("Общая сумма затрат на зарплату по отделу 1 : " + totalSalaryDrp1);
-//            System.out.println("Средняя сумма зарплат по отделу 1 : " + EmployeeBook.averageSalaryEmployee(departament1));
-//            System.out.println("Индексация в % всех сотрудников отдела 1 : ");
-//            System.out.println(EmployeeBook.salaryPercent(totalSalaryDrp1, 1));
-//            System.out.println("++++++++++");
-//            System.out.println("Список сотрудников отдела 1 (без номера отдела) : ");
-//
-//            EmployeeBook.fioOfDepartament(departament1);
-//            System.out.println("++++++++++");
-//            System.out.println("Зарплата меньше числа : ");
-//            EmployeeBook.numberMoreOrUnder(140000, departament1);
-//            System.out.println("++++++++++");
-//
-//        }
-//        } else if (namberDepartament == 2) {
-//            System.out.println("ОТДЕЛ № 2");
-//            int count = 0;                             //с данного массива переместили нужные данные в другой массив
-//            for (int i = 0; i < workers.length; i++) {   //
-//                if (workers[i].getDepartment() == 2) {   //
-//                    count++;                           // мы узнали количество элементов которое будет в новом массиве
-//                }
-//
-//            }
-//
-//            Employee[] departament2 = new Employee[count];     // в массиве в который перенесли данные,теперь два элемента
-//            int index = 0;                             //
-//            for (int i = 0; i < workers.length; i++) {
-//                if (workers[i].getDepartment() == 2) {   //по условиям задачи
-//                    departament2[index] = workers[i];            // теперь данные записались в другой массив
-//                    index++;
-//                }
-//            }
-//            EmployeeBook.employeeData(departament2);
-//            System.out.println("++++++++++");
-//            System.out.println("Минимальная зарплата в отделе 2 : " + EmployeeBook.minSalaryEmployee(departament2));
-//            System.out.println("Максимальная зарплата в отделе 2 : " + EmployeeBook.maxSalaryEmployee(departament2));
-//            int totalSalaryDrp1 = EmployeeBook.totalSalaryForMonth(departament2);
-//            System.out.println("Общая сумма затрат на зарплату по отделу 2 : " + totalSalaryDrp1);
-//            System.out.println("Средняя сумма зарплат по отделу 2 : " + EmployeeBook.averageSalaryEmployee(departament2));
-//            System.out.println("Индексация в % всех сотрудников отдела 2 : ");
-//            System.out.println(EmployeeBook.salaryPercent(totalSalaryDrp1, 2));
-//            System.out.println("++++++++++");
-//            System.out.println("Список сотрудников отдела 2 (без номера отдела) : ");
-//
-//            EmployeeBook.fioOfDepartament(departament2);
-//            System.out.println("++++++++++");
-//            System.out.println("Зарплата меньше числа : ");
-//            EmployeeBook.numberMoreOrUnder(140000, departament2);
-//            System.out.println("++++++++++");
-//
-//
-//        } else if (namberDepartament == 3) {
-//            System.out.println("ОТДЕЛ № 3");
-//            int count = 0;                             //с данного массива переместили нужные данные в другой массив
-//            for (int i = 0; i < workers.length; i++) {   //
-//                if (workers[i].getDepartment() == 3) {   //
-//                    count++;                           // мы узнали количество элементов которое будет в новом массиве
-//                }
-//
-//            }
-//
-//            Employee[] departament3 = new Employee[count];     // в массиве в который перенесли данные,теперь два элемента
-//            int index = 0;                             //
-//            for (int i = 0; i < workers.length; i++) {
-//                if (workers[i].getDepartment() == 3) {   //по условиям задачи
-//                    departament3[index] = workers[i];            // теперь данные записались в другой массив
-//                    index++;
-//                }
-//            }
-//            EmployeeBook.employeeData(departament3);
-//            System.out.println("++++++++++");
-//            System.out.println("Минимальная зарплата в отделе 3 : " + EmployeeBook.minSalaryEmployee(departament3));
-//            System.out.println("Максимальная зарплата в отделе 3 : " + EmployeeBook.maxSalaryEmployee(departament3));
-//            int totalSalaryDrp1 = EmployeeBook.totalSalaryForMonth(departament3);
-//            System.out.println("Общая сумма затрат на зарплату по отделу 3 : " + totalSalaryDrp1);
-//            System.out.println("Средняя сумма зарплат по отделу 3 : " + EmployeeBook.averageSalaryEmployee(departament3));
-//            System.out.println("Индексация в % всех сотрудников отдела 3 : ");
-//            System.out.println(EmployeeBook.salaryPercent(totalSalaryDrp1, 3));
-//            System.out.println("++++++++++");
-//            System.out.println("Список сотрудников отдела 3 (без номера отдела) : ");
-//
-//            EmployeeBook.fioOfDepartament(departament3);
-//            System.out.println("++++++++++");
-//            System.out.println("Зарплата меньше числа : ");
-//            EmployeeBook.numberMoreOrUnder(140000, departament3);
-//            System.out.println("++++++++++");
-//
-//
-//        }else if (namberDepartament == 4) {
-//            System.out.println("ОТДЕЛ № 4 ");
-//            int count = 0;                             //с данного массива переместили нужные данные в другой массив
-//            for (int i = 0; i < workers.length; i++) {   //
-//                if (workers[i].getDepartment() == 4) {   //
-//                    count++;                           // мы узнали количество элементов которое будет в новом массиве
-//                }
-//
-//            }
-//
-//            Employee[] departament4 = new Employee[count];     // в массиве в который перенесли данные,теперь два элемента
-//            int index = 0;                             //
-//            for (int i = 0; i < workers.length; i++) {
-//                if (workers[i].getDepartment() == 4) {   //по условиям задачи
-//                    departament4[index] = workers[i];            // теперь данные записались в другой массив
-//                    index++;
-//                }
-//            }
-//            EmployeeBook.employeeData(departament4);
-//            System.out.println("++++++++++");
-//            System.out.println("Минимальная зарплата в отделе 4 : " + EmployeeBook.minSalaryEmployee(departament4));
-//            System.out.println("Максимальная зарплата в отделе 4 : " + EmployeeBook.maxSalaryEmployee(departament4));
-//            int totalSalaryDrp1 = EmployeeBook.totalSalaryForMonth(departament4);
-//            System.out.println("Общая сумма затрат на зарплату по отделу 4 : " + totalSalaryDrp1);
-//            System.out.println("Средняя сумма зарплат по отделу 4 : " + EmployeeBook.averageSalaryEmployee(departament4));
-//            System.out.println("Индексация в % всех сотрудников отдела 4 : ");
-//            System.out.println(EmployeeBook.salaryPercent(totalSalaryDrp1, 4));
-//            System.out.println("++++++++++");
-//            System.out.println("Список сотрудников отдела 3 (без номера отдела) : ");
-//
-//            EmployeeBook.fioOfDepartament(departament4);
-//            System.out.println("++++++++++");
-//            System.out.println("Зарплата меньше числа : ");
-//            EmployeeBook.numberMoreOrUnder(140000, departament4);
-//            System.out.println("++++++++++");
-//
-//
-//        }else if (namberDepartament == 5) {
-//            System.out.println("ОТДЕЛ № 5");
-//            int count = 0;                             //с данного массива переместили нужные данные в другой массив
-//            for (int i = 0; i < workers.length; i++) {   //
-//                if (workers[i].getDepartment() == 5) {   //
-//                    count++;                           // мы узнали количество элементов которое будет в новом массиве
-//                }
-//
-//            }
-//
-//            Employee[] departament5 = new Employee[count];     // в массиве в который перенесли данные,теперь два элемента
-//            int index = 0;                             //
-//            for (int i = 0; i < workers.length; i++) {
-//                if (workers[i].getDepartment() == 5) {   //по условиям задачи
-//                    departament5[index] = workers[i];            // теперь данные записались в другой массив
-//                    index++;
-//                }
-//            }
-//            EmployeeBook.employeeData(departament5);
-//            System.out.println("++++++++++");
-//            System.out.println("Минимальная зарплата в отделе 5 : " + EmployeeBook.minSalaryEmployee(departament5));
-//            System.out.println("Максимальная зарплата в отделе 5 : " + EmployeeBook.maxSalaryEmployee(departament5));
-//            int totalSalaryDrp1 = EmployeeBook.totalSalaryForMonth(departament5);
-//            System.out.println("Общая сумма затрат на зарплату по отделу 5 : " + totalSalaryDrp1);
-//            System.out.println("Средняя сумма зарплат по отделу 5 : " + EmployeeBook.averageSalaryEmployee(departament5));
-//            System.out.println("Индексация в % всех сотрудников отдела 5 : ");
-//            System.out.println(EmployeeBook.salaryPercent(totalSalaryDrp1, 5));
-//            System.out.println("++++++++++");
-//            System.out.println("Список сотрудников отдела 3 (без номера отдела) : ");
-//
-//            EmployeeBook.fioOfDepartament(departament5);
-//            System.out.println("++++++++++");
-//            System.out.println("Зарплата меньше числа : ");
-//            EmployeeBook.numberMoreOrUnder(140000, departament5);
-//            System.out.println("++++++++++");
-//
-//
-//        }
-//
-//
-//
-//
-//
-//
-//
-//}
+
     public void seporator() {
         System.out.println("+++++++++++++++");
     }
         }
-//2. Получить в качестве параметра номер отдела (1–5) и найти (всего 6 методов):
-//        1. Сотрудника с минимальной зарплатой.
-//        2. Сотрудника с максимальной зарплатой.
-//        3. Сумму затрат на зарплату по отделу.

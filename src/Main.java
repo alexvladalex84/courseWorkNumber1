@@ -3,7 +3,7 @@ public class Main {
 
     public static void main(String[] args) {
         EmployeeBook worker = new EmployeeBook();
-         worker.addWorkers("Александров ","Александр ","Владимирович ",300000,1);
+        worker.addWorkers("Александров ", "Александр ", "Владимирович ", 300000, 1);
         worker.addWorkers("Мир ", "Ан ", "Анат ", 110005, 3);
         worker.addWorkers("Андреев ", "Андрей ", "Андреевич ", 50046, 1);
         worker.addWorkers("Рид ", "Vbн ", "Анат ", 120001, 5);
@@ -13,16 +13,15 @@ public class Main {
         worker.addWorkers("Сид ", "Ан ", "Анат ", 20000, 3);
         worker.addWorkers("Мил ", "Анh ", "Анат ", 120028, 1);
         worker.addWorkers("Миk ", "Анf ", "Анат ", 109000, 5);
-//        worker.addWorkers("ssss","ssd","ewdew",222,1);
-          worker.getCurrentSizeOfBook();
-          separator();
+        worker.getCurrentSizeOfBook();
+        separator();
         System.out.println("Удалить сотрудника ");
-        worker.removeTheWorker(6);
+        worker.removeTheWorker(7);
         separator();
         System.out.println("Изменить зарплату и отдел сотрудника ");
 
-        worker.changeWorkerSalary("Мир ","Ан ","Анат ",150000);
-        worker.changeWorkerDepartment("Александров ","Александр ","Владимирович ",2);
+        worker.changeWorkerSalary("Мир ", "Ан ", "Анат ", 150000);
+        worker.changeWorkerDepartment("Александров ", "Александр ", "Владимирович ", 2);
         separator();
         System.out.println(" Получить Ф. И. О. всех сотрудников по отделам (напечатать список отделов и их сотрудников)");
         worker.printListOfWorkersAndDepartments();
@@ -36,7 +35,7 @@ public class Main {
         separator();
         System.out.println("Минимальная зарплата всех сотрудников за 1 месяц : " + worker.countMinSalaryWorkers());
         separator();
-        System.out.println("Максимальная зарплата всех сотрудников за 1 месяц : "   + worker.contMaxSalaryWorkers());
+        System.out.println("Максимальная зарплата всех сотрудников за 1 месяц : " + worker.contMaxSalaryWorkers());
         separator();
         System.out.println("Среднее значение по зарплате за месяц : " + worker.countAverageSalaryWorkers());
         separator();
@@ -60,46 +59,16 @@ public class Main {
         separator();
         System.out.println("Повысить зарплату в % по отделам ");
         worker.countPercentInDepartment(2, 10);
-
-
-
-//        System.out.println("Список сотрудников и их данные");
-//        EmployeeBook.employeeData(employeemas);
-//        int totalSalary = EmployeeBook.totalSalaryForMonth(employeemas);
-//        System.out.println("Общая сумма затрат на зарплаты в месяц: " + totalSalary);
-//
-//        int maxSum = EmployeeBook.maxSalaryEmployee(employeemas);
-//
-//        int minSum = EmployeeBook.minSalaryEmployee(employeemas);
-//
-//        double averageSum = EmployeeBook.averageSalaryEmployee(employeemas);
-//
-//        System.out.println("Минимальная сумма зарплаты сотрудника составляет : " + minSum);
-//        System.out.println("Максимальная сумма зарплаты сотрудника составляет : " + maxSum);
-//        System.out.println("Среднее значение по зарплате сотавляет : " + averageSum);
-//
-//        EmployeeBook.Fio(employeemas);
-//        System.out.println("Повышение з.п в процентах: " + EmployeeBook.salaryPercent(totalSalary, 10) + " рублей.");
-//        System.out.println("По номеру департамента: ");
-//
-//
-//        System.out.println("Найти по ID : ");
-//        EmployeeBook.findById(2, employeemas);
-//
-//        System.out.println("===========================================================================================");
-//
-////
-//        EmployeeBook.departamentNumber(5, employeemas);
-
     }
 
     public static void separator () {
         System.out.println("============================");
-
+    }
     }
 
 
-}
+
+
 
 
 
